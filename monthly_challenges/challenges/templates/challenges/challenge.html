@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "Challenges/Challenge.css" %}">
+    <link rel="stylesheet" href="{% static "Challenges/includes/header.css" %}">
+{% endblock %}
+
+{% block page_title %}
+    {{month_name|title}} Challenge
+{% endblock %}
+
+{% block content %} 
+
+    {% include "Challenges/includes/header.html" %}
+
+    <h1>{{month_name|title}} Challenge</h1>
+    {% if text is not None %}
+    <h2>{{text}}</h2>
+    {%else%}
+    <p class="fallback">There is no Challenge for this month yet!</p>
+    {%endif%}
+{% endblock %}
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{month_name|title}} Challenge</title>
+</head>
+
+<body>
+    <h1>{{month_name|title}} Challenge</h1>
+    {% if text is not None %}
+    <h2>{{text}}</h2>
+    {%else%}
+    <p>There is no Challenge for this month yet!</p>
+    {%endif%}
+</body>
+
+</html> {% endcomment %}
